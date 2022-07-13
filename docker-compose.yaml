@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   backend-server:
+    image: 'myapp'
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,7 +17,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: 'boss-raid'
+      # MYSQL_DATABASE: 'boss-raid'
       MYSQL_ROOT_PASSWORD: '2222'
       MYSQL_TCP_PORT: 3308
       TZ: 'Asia/Seoul'
@@ -33,5 +34,6 @@ services:
 
   redis-server:
     image: redis:latest
+    # command: ['exec -it redis-cli', 'WATCH raidStatus']
     ports:
       - 6379:6379

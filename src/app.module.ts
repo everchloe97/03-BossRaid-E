@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import type { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
+import { RaidModule } from './raid/raid.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import * as redisStore from 'cache-manager-redis-store';
     }),
     UserModule,
     AuthModule,
+    RaidModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
